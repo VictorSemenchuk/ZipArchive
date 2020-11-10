@@ -165,7 +165,8 @@
     zipInfo.tmz_date.tm_min = (uInt)components.minute;
     zipInfo.tmz_date.tm_hour = (uInt)components.hour;
     zipInfo.tmz_date.tm_mday = (uInt)components.day;
-    zipInfo.tmz_date.tm_mon = (uInt)components.month;
+    // ISO/IEC 9899 struct tm is 0-indexed for January but NSDateComponents for gregorianCalendar is 1-indexed for January
+    zipInfo.tmz_date.tm_mon = (uInt)components.month - 1;
     zipInfo.tmz_date.tm_year = (uInt)components.year;
     
 	
